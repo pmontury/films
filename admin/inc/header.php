@@ -11,7 +11,7 @@
             <li><a href="index.php">Accueil</a></li>
             <li><a href="addmovie.php">Ajouter un film</a></li>
             <li><a href="../deconnexion.php">Déconnexion</a></li>
-            <!-- <li class="bonjour">Bonjour <?= $_SESSION['user']['pseudo']; ?></li> -->
+            <li class="bonjour">Bonjour <?= $_SESSION['user']['pseudo']; ?></li>
          </ul>
       </nav>
    </div>
