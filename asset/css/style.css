@@ -80,6 +80,9 @@ footer ul li a:hover { text-decoration: underline; color: tomato; }
 .filmlist img {
   width: 100%;
 }
+.forgetpass {
+  color: #000;
+}
 
 /*---------*/
 /* THE END */

@@ -4,7 +4,7 @@
    $errors = array();
    $changePswd = false;
 
-   if (isset($_REQUEST['formoublie']) AND getRequestValue('submitoublie'))
+   if (getRequestValue('submitoublie'))
    {  $email = getRequestValue('email');
       if (empty($email))
       {  $errors['email'] = 'Veuillez renseigner l\'adresse mail';
@@ -18,7 +18,7 @@
          {  $errors['email'] = 'Adresse email inconnue !!';
          }
          else
-         {  $changePswd = '<a href="http://localhost/php-phil/php12/changepswd.php?email='.urlencode($user['email']).'&token='.urlencode($user['token']).'">Changement Mot de passe</a>';
+         {  $changePswd = '<a href="http://localhost/warrenphp/Films/films/changepswd.php?email='.urlencode($user['email']).'&token='.urlencode($user['token']).'">Changement Mot de passe</a>';
             die($changePswd);
          }
       }

@@ -15,7 +15,7 @@
       }
    }
 
-   if (isset($_REQUEST['formchange']) AND getRequestValue('submitchange'))
+   if (getRequestValue('submitchange'))
    {  $password = getRequestValue('password');
       $password2 = getRequestValue('password2');
 
@@ -27,6 +27,7 @@
          upadtetUserPswd($user['id'], $hashPassword, $token);
          header('Location: login.php');
       }
+
    }
    include('inc/html.php');
    include('inc/header.php');

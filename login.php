@@ -3,7 +3,7 @@
    $pageTitle = 'Connexion';
    $errors = array();
 
-   if (isset($_REQUEST['formlogin']) AND getRequestValue('submitlogin'))
+   if (getRequestValue('submitlogin'))
    {  $login = getRequestValue('login');
       $password = getRequestValue('password');
       if (empty($login) OR empty($password))
