@@ -1,4 +1,5 @@
 <?php
+   include('inc/config.php');
    require('inc/func.php');
    $pageTitle = 'Mot de passe oublié';
    $errors = array();
@@ -18,7 +19,7 @@
          {  $errors['email'] = 'Adresse email inconnue !!';
          }
          else
-         {  $changePswd = '<a href="http://localhost/warrenphp/Films/films/changepswd.php?email='.urlencode($user['email']).'&token='.urlencode($user['token']).'">Changement Mot de passe</a>';
+         {  $changePswd = '<a href="'.$web['url_base'].'/changepswd.php?email='.urlencode($user['email']).'&token='.urlencode($user['token']).'">Changement Mot de passe</a>';
             die($changePswd);
          }
       }

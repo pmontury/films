@@ -14,7 +14,11 @@
          $html .= '<td>' . $film['title'] . '</td>';
          $html .= '<td>' . $film['year'] . '</td>';
          $html .= '<td>' . $film['rating'] . '</td>';
-         $html .= '<td class="colaction"><a href="detail.php?id=' . $film['slug'] . '"><i class="fi-eye size-30"></i></a></td>';
+         $html .= '<td>';
+         $html .= '<a href="detail.php?slug=' . $film['slug'] . '"><i class="fi-eye size-30"></i></a>';
+         $html .= '<a href="editfilm.php?id=' . $film['id'] . '"><i class="fi-pencil size-24"></i></a>';
+         $html .= '<a href="deletefilm.php?id=' . $film['id'] . '" onclick="return confirm(\'Confirmer la suppression\')"><i class="fi-trash size-24"></i></a>';
+         $html .= '</td>';
          $html .= '</tr>';
       }
       $html .= '</tbody>';

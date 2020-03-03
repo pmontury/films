@@ -8,9 +8,9 @@ $movies = $query->fetchAll();
 ?>
 
 <div class="wrap" id="content">
+    <!-- Ci-dessous la liste des films qui apparaît tout le temps -->
   <?php foreach ($movies as $movie):
     $file = 'posters/'.$movie['id'].'.jpg'; ?>
-
     <div class="filmlist">
       <p><?= $movie['title']; ?></p>
       <?php if (file_exists($file)) { ?>
@@ -20,9 +20,15 @@ $movies = $query->fetchAll();
       <?php } ?>
     </div>
   <?php endforeach; ?>
-    <div class="clear">
 
-    </div>
+
+  <div class="clear"></div>
+  <!-- Bouton pour voir plus -->
+  <div><a class="button" href="index.php">Voir plus</a></div>
+
+
+  <div class="clear"></div>
+
 
 
 </div>
