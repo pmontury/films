@@ -24,7 +24,7 @@
       <p>Créé le <?php echo date('d/m/Y',strtotime($film['created'])) ?></p>
       <p>Modifié le <?php echo date('d/m/Y',strtotime($film['modified'])) ?></p>
    </div>
-   <?php    if (!isLogged()) { ?>
+   <?php    if (isLogged()) { ?>
    <a href="films_a_voir.php?id=<?= $film['movie_id']; ?>">A voir</a>
    <?php  } ?>
 </div>

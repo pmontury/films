@@ -2,7 +2,7 @@
    require('inc/func.php');
    include('inc/html.php');
 
-  if (!isLogged()) {
+  if (isLogged()) {
     $t_notes = $_GET['t_notes'];
     $sql = "SELECT movie_id FROM t_notes WHERE id = :id ORDER BY created_at";
     $query = $pdo->prepare($sql);
