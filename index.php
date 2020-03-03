@@ -5,5 +5,5 @@
 
    include('inc/html.php');
    include('inc/header.php');
-   include('inc/body.php');
+   include('inc/listfilm.php');
    include('inc/footer.php');
