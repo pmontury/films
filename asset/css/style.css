@@ -38,7 +38,7 @@ th
 .col1 { width: 15%; }
 
 .colaction { width: 8%; text-align: center; padding: 0; }
-td { padding-left: 5px; border: 1px solid black; vertical-align: top;}
+td { padding-left: 5px; border: 1px solid black; vertical-align: middle; }
 i { color: black; }
 i:hover { color: tomato; }
 

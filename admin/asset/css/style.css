@@ -25,6 +25,8 @@ h1 { font-size: 1.5em; margin: 20px 0; text-decoration: underline; }
 
 .pagination li { display: inline; padding: 0 5px; }
 .pagination li a { text-decoration: none; color: black; }
+.pagination li:hover { background-color: #E8E3B7; border-radius: 5px; }
+.pagination li a:hover { color: tomato; }
 .active { background-color: #E8E3B7; border-radius: 5px; }
 
 table { width: 100%; margin: 10px 0; }
@@ -33,13 +35,13 @@ th
    font-size: 1.1em; font-weight: bold;
    padding: 5px 0 5px 5px;
    border: 2px solid black;
-   background-color: #FFF7D7;
+   background-color: #E8E3B7;
 }
 .col1 { width: 15%; }
 
-.colaction { width: 8%; text-align: center; padding: 0; }
-td { padding-left: 5px; border: 1px solid black; vertical-align: top;}
-i { color: black; }
+.colaction { text-align: center; padding: 0; }
+td { padding-left: 5px; border: 1px solid black; vertical-align: middle;}
+i { color: black; padding-right: 5px; vertical-align: middle; }
 i:hover { color: tomato; }
 
 .detail { width: 50%; float: left; }

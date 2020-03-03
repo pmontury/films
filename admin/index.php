@@ -1,4 +1,5 @@
 <?php
+// index.php administration
    require('vendor/autoload.php');
    require('../inc/func.php');
    $errors = array();
@@ -15,13 +16,11 @@
    $urlPattern = 'index.php?page=(:num)';
    $paginator = new Paginator($totalItems, $itemsPerPage, $currentPage, $urlPattern);
 
-   // if (!isLogged())
-   // {
-   //
-   // }
+   if (!isAdmin())
+   {  header('Location: ../index.php');
+   }
 
    $stats = selectCountUsers();
-   // $films = selectFilms();
 
    include('inc/html.php');
    include('inc/header.php');

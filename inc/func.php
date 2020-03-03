@@ -143,6 +143,27 @@ function selectUser($login)
    return executeSelect($query, 'fetch');
 }
 
+function selectFilm($id)
+{  global $pdo;
+   $sqlReq = "SELECT *
+                FROM movies_full
+               WHERE id = :id";
+   $query = $pdo->prepare($sqlReq);
+   $query->bindValue(':id', $id, PDO::PARAM_INT);
+   return executeSelect($query, 'fetch');
+}
+
+function deleteFilm($id)
+{  global $pdo;
+   $sqlReq = "DELETE
+                FROM movies_full
+               WHERE id = :id";
+   $query = $pdo->prepare($sqlReq);
+   $query->bindValue(':id', $id, PDO::PARAM_INT);
+   $result = $query->execute();
+   return $result;
+}
+
 function selectUserToken($email, $token)
 {  global $pdo;
    $sqlReq = "SELECT *
@@ -191,7 +212,7 @@ function selectCountFilms()
 
 function selectFilms($limit, $offset)
 {  global $pdo;
-   $sqlReq = "SELECT slug, title, year, rating
+   $sqlReq = "SELECT id, slug, title, year, rating
                 FROM movies_full
             ORDER BY title
                LIMIT $limit
