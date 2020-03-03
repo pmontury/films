@@ -24,4 +24,5 @@ $movies = $query->fetchAll();
 
     </div>
 
+
 </div>
