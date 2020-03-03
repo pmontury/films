@@ -90,6 +90,9 @@ footer ul li a:hover { text-decoration: underline; color: tomato; }
   width: 100%;
 }
 
+.none {
+  display: none;
+}
 /*---------*/
 /* THE END */
 /*---------*/
