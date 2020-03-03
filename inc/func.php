@@ -2,6 +2,10 @@
 session_start();
 require('pdo.php');
 
+function br() {
+  echo '<br>';
+}
+
 function debug(array $array)
 {  echo '<pre>';
    print_r($array);
@@ -144,7 +148,7 @@ function selectUserToken($email, $token)
 
 function insertUser($pseudo, $email, $password, $token, $role)
 {  global $pdo;
-   $sql = "INSERT INTO t_users VALUES (NULL, :pseudo, :email, :password, :token, NOW(), :role)";
+   $sql = "INSERT INTO t_users VALUES (NULL, :pseudo, :email, :password, NOW(), :token, :role)";
    $query = $pdo->prepare($sql);
    $query->bindValue(':pseudo', $pseudo, PDO::PARAM_STR);
    $query->bindValue(':email', $email, PDO::PARAM_STR);
