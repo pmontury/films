@@ -3,7 +3,7 @@
    $pageTitle = 'Inscription';
    $errors = array();
 
-   if (isset($_REQUEST['formregister']) AND getRequestValue('submitinscription'))
+   if (getRequestValue('submitinscription'))
    {  $pseudo = getRequestValue('pseudo');
       $email = getRequestValue('email');
       $password = getRequestValue('password');
@@ -20,7 +20,7 @@
       }
 
       $errors = verifPasswords($password, $password2, 6, 'password', $errors);
-
+      debug($errors);
       if (!count($errors))
       {  $hashPassword = password_hash($password, PASSWORD_DEFAULT);
          $token = generateRandomString(120);
@@ -32,5 +32,5 @@
 
    include('inc/html.php');
    include('inc/header.php');
-   include('inc/formregister.php');
+   require('inc/formregister.php');
    include('inc/footer.php');
