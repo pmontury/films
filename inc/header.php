@@ -4,7 +4,7 @@
          <img src="asset/img/bobine.jpg" alt="bobine de film">
       </div>
       <div class="titre">
-         <p>Les films</p>
+         <p>Les films d'Antoine</p>
       </div>
       <nav>
          <ul>
