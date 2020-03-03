@@ -12,7 +12,7 @@
      }
   if (isLogged()) {
 
-    $sql "INSERT INTO t_notes VALUES (NULL, :user_id, :movie_id,NULL,NOW(),:modified_at)";
+    $sql = "INSERT INTO t_notes VALUES (NULL, :user_id, :movie_id,NULL,NOW(),:modified_at)";
     $query = $pdo->prepare($sql);
     $query->bindvalue(':user_id',$user_id,PDO::PARAM_INT);
     $query->bindValue(':movie_id',$movie_id, PDO::PARAM_STR);
