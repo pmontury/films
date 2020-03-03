@@ -10,7 +10,7 @@ $movies = $query->fetchAll(); ?>
     <?php foreach ($movies as $movie): ?>
       <div class="filmlist">
         <p><?= $movie['title']; ?></p>
-        <div class=""><a href="detail.php?slug='<?= $movie['slug'] ?>'"><img src="posters/<?= $movie['id'] ?>.jpg" alt="random image"></a></div>
+        <div class=""><a href="detail.php?slug=<?= $movie['slug'] ?>"><img src="posters/<?= $movie['id'] ?>.jpg" alt="random image"></a></div>
 
       </div>
 
