@@ -20,7 +20,6 @@
        <label for="password2">Confirmer mot de passe</label>
        <input type="password" name="password2" value="<?php if(!empty($_POST['password2'])){echo $_POST['password2'];} ?>">
 
-
        <input type="submit" name="submitinscription" value="Inscription">
      </form>
    </div>

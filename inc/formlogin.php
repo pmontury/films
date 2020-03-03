@@ -11,6 +11,7 @@
 
      <label for="password">Mot de passe</label>
      <input type="password" name="password" value="<?php if(!empty($_POST['password'])){echo $_POST['password'];} ?>">
+     
      <a class="forgetpass" href="oublie.php">Mot de passe oublié</a>
      <p class="error"><?php if(!empty($errors['password'])) {echo $errors['password'];} ?></p>
      <input type="submit" name="submitlogin" value="CONNEXION">
