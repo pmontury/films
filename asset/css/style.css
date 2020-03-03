@@ -1,0 +1,66 @@
+/*----------*/
+/* LE DEBUT */
+/*----------*/
+body { font: 400 16px/1.3 'Roboto', sans-serif; color: #000; background-color: #CBF9FF; position: relative; }
+
+.wrap { max-width: 800px; width: 100%; margin: 0 auto; }
+
+header { background-color: #AED2E8; }
+
+.error { color: red; font-size: 1em; margin-left: 26%; min-height: 20px; }
+.position { position: relative; height: 130px; }
+
+nav { position: absolute; top:50%; right: 1%; transform: translateY(-50%); }
+nav ul { text-align: center; }
+nav ul li { display: inline; padding: 0 15px; }
+nav ul li a { text-decoration: none; color: black; }
+nav ul li a:hover { text-decoration: underline; color: tomato; }
+.bonjour { font-weight: bold; }
+
+#content { min-height: 710px; }
+h1 { font-size: 1.5em; margin: 20px 0; text-decoration: underline; }
+
+.pagination li { display: inline; padding: 0 5px; }
+.pagination li a { text-decoration: none; color: black; }
+.active { background-color: #AED2E8; border-radius: 5px; }
+
+table { width: 100%; margin: 10px 0; }
+th
+{  text-align: left; vertical-align: middle;
+   font-size: 1.1em; font-weight: bold;
+   padding: 5px 0 5px 5px;
+   border: 2px solid black;
+   background-color: #AED2E8;
+}
+.col1 { width: 15%; }
+
+.colaction { width: 8%; text-align: center; padding: 0; }
+td { padding-left: 5px; border: 1px solid black; vertical-align: top;}
+i { color: black; }
+i:hover { color: tomato; }
+
+.detail { width: 50%; float: left; }
+.detail img { width: 90%; }
+
+.lignedetail { width: 100%; margin: 10px 0;}
+.lignedetail p { display: inline-block; }
+.titredetail { width: 13%; font-weight: bold; vertical-align: top; }
+.infodetail { width: 87%; display: }
+
+.formInput { margin: 10px 0;  }
+label { display: inline-block; width: 25%; font-weight: bold; }
+label span { color:red; }
+.labelText { vertical-align: top; }
+input { font-size: 1em; width: 74%; }
+.submit { width: 30%; }
+
+footer { background-color: #AED2E8; }
+footer p { position: absolute; top:50%; left: 50%; transform: translate(-50%, -50%); }
+footer ul { position: absolute; top:50%; right: 1%; transform: translateY(-50%); text-align: center; }
+footer ul li { display: inline; padding: 0 15px;}
+footer ul li a { text-decoration: none; color: black; }
+footer ul li a:hover { text-decoration: underline; color: tomato; }
+
+/*---------*/
+/* THE END */
+/*---------*/
