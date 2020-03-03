@@ -191,3 +191,14 @@ function isAdmin()
    }
    return false;
 }
+
+function exist($file)
+{
+  if (file_exists($file)){
+    echo $file;
+  }
+  else {
+    echo '<img src="posters/empty.jpg">';
+  }
+
+}
