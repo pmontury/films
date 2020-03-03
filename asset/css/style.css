@@ -50,7 +50,7 @@ i:hover { color: tomato; }
 .titredetail { width: 13%; font-weight: bold; vertical-align: top; }
 .infodetail { width: 87%; display: }
 
-.formInput { margin: 10px 0;  }
+.formInput { margin: 10px 0; }
 label { display: inline-block; width: 25%; font-weight: bold; }
 label span { color:red; }
 .labelText { vertical-align: top; }

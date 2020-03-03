@@ -1,6 +1,5 @@
 <?php
    require('inc/func.php');
-   $pageTitle = 'Connexion';
    $errors = array();
 
    if (getRequestValue('submitlogin'))
