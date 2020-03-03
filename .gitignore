@@ -12,6 +12,7 @@ asset/foundation
 posters/*
 vendor/*
 inc/pdo.php
+inc/config.php
 .idea/
 .DS_
 .DS_Store
