@@ -15,7 +15,7 @@
 
    include('inc/html.php');
    include('inc/header.php'); ?>
-
+<div class="wrap" id="content">
    <div class="film">
       <h2><?= $film['slug']; ?></h2>
       <img src="posters/<?= $film['id'] .'.jpg' ?>" alt="<?= $film['title']; ?>">
@@ -23,8 +23,8 @@
       <p><?= nl2br($film['plot']); ?></p>
       <p>Créé le <?php echo date('d/m/Y',strtotime($film['created'])) ?></p>
       <p>Modifié le <?php echo date('d/m/Y',strtotime($film['modified'])) ?></p>
-   </div>
-
+   </div>  
+</div>
 
 
 
