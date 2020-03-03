@@ -23,7 +23,10 @@
       <p><?= nl2br($film['plot']); ?></p>
       <p>Créé le <?php echo date('d/m/Y',strtotime($film['created'])) ?></p>
       <p>Modifié le <?php echo date('d/m/Y',strtotime($film['modified'])) ?></p>
-   </div>  
+   </div>
+   <?php    if (isLogged()) { ?>
+   <a onclick="['notes']" href="films_a_voir.php">à voir</a>
+   <?php  } ?>
 </div>
 
 
