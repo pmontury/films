@@ -3,15 +3,26 @@
    include('inc/html.php');
 
   if (isLogged()) {
-    $t_notes = $_GET['t_notes'];
-    $sql = "SELECT movie_id FROM t_notes WHERE id = :id ORDER BY created_at";
+    $movie_id = $_GET['id'];
+    $sql = "SELECT * FROM t_notes WHERE movie_id = :movie_id ORDER BY created_at ASC";
     $query = $pdo->prepare($sql);
-    $query->bindvalue(':t_notes',$t_notes,PDO::PARAM_STR);
+    $query->bindvalue(':movie_id',$movie_id,PDO::PARAM_INT);
     $query->execute();
+    $note = $query->fetchAll();
      }
+  if (isLogged()) {
+
+    $sql = "INSERT INTO t_notes VALUES (NULL, :user_id, :movie_id,NULL,NOW(),:modified_at)";
+    $query = $pdo->prepare($sql);
+    $query->bindvalue(':user_id',$user_id,PDO::PARAM_INT);
+    $query->bindValue(':movie_id',$movie_id, PDO::PARAM_STR);
+    $query->bindValue(':modified_at', $modified_at, PDO::PARAM_STR);
+    $query->execute();
+  }
+     //debug($note);
    include('inc/header.php');?>
    <div class="a voir">
-      <h2><?= $t_notes['movie_id']; ?></h2>
+      <h2><?= $note['id']; ?></h2>
    </div>
 
 <?php  include('inc/footer.php');

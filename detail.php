@@ -25,7 +25,7 @@
       <p>Modifié le <?php echo date('d/m/Y',strtotime($film['modified'])) ?></p>
    </div>
    <?php    if (isLogged()) { ?>
-   <a href="films_a_voir.php?id=<?= $film['movie_id']; ?>">A voir</a>
+   <a href="films_a_voir.php?id=<?= $film['id']; ?>">A voir</a>
    <?php  } ?>
 </div>
 
