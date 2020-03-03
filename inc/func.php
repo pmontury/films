@@ -103,6 +103,15 @@ function executeSelect($query, $requestType)
    return $result;
 }
 
+function selectCountUsers()
+{  global $pdo;
+   $sqlReq = "SELECT role, COUNT(*)
+                FROM t_users
+               GROUP BY role";
+   $query = $pdo->prepare($sqlReq);
+   return executeSelect($query, 'fetchAll');
+}
+
 function selectPseudo($pseudo)
 {  global $pdo;
    $sqlReq = "SELECT *
@@ -170,6 +179,25 @@ function upadtetUserPswd($id, $password, $token)
    $query->bindValue(':token', $token, PDO::PARAM_STR);
    $result = $query->execute();
    return $result;
+}
+
+function selectCountFilms()
+{  global $pdo;
+   $sqlReq = "SELECT COUNT(*)
+                FROM movies_full";
+   $query = $pdo->prepare($sqlReq);
+   return executeSelect($query, 'fetchColumn');
+}
+
+function selectFilms($limit, $offset)
+{  global $pdo;
+   $sqlReq = "SELECT slug, title, year, rating
+                FROM movies_full
+            ORDER BY title
+               LIMIT $limit
+              OFFSET $offset";
+   $query = $pdo->prepare($sqlReq);
+   return executeSelect($query, 'fetchAll');
 }
 
 function isLogged()
