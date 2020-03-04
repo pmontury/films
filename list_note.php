@@ -18,7 +18,7 @@
    } else {
         die ('404');
    }
-   debug($films);
+   //debug($films);
 
    include('inc/html.php');
    include('inc/header.php');?>
