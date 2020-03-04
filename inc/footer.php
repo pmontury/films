@@ -2,7 +2,14 @@
       <footer>
          <div class="wrap position">
             <p>&copy; <?= date('Y'); ?> Les films d'Antoine</p>
+            <div class="Iconsocial">
+              <a class="" href="twitter.com"><i class="fi-social-twitter size-60"></i></a>
+              <a class="" href="facebook.com"><i class="fi-social-facebook size-60"></i></a>
+              <a class="" href="youtube.com"><i class="fi-social-youtube size-60"></i></a>
+            </div>
          </div>
+
+
       </footer>
       <!-- Pour le javascript  -->
       <script

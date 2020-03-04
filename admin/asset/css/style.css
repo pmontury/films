@@ -1,11 +1,11 @@
 /*----------*/
 /* LE DEBUT */
 /*----------*/
-body { font: 400 16px/1.3 'Roboto', sans-serif; color: #000; background-color: #FFF7D7; position: relative; }
+body { font: 400 16px/1.3 'Roboto', sans-serif; color: #000;background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(255,255,255,1) 0%, rgba(26,150,175,1) 100%); position: relative; }
 
 .wrap { max-width: 800px; width: 100%; margin: 0 auto; }
 
-header { background-color: #E8E3B7; }
+header { background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(196,196,196,1) 0%, rgba(23,125,160,1) 100%); }
 
 .error { color: red; font-size: 1em; margin-left: 26%; min-height: 20px; }
 .position { position: relative; height: 130px; }
@@ -26,9 +26,9 @@ h1 { font-size: 1.5em; margin: 20px 0; text-decoration: underline; }
 .pagination { width: 50%; float: left; }
 .pagination li { display: inline; padding: 0 5px; }
 .pagination li a { text-decoration: none; color: black; }
-.pagination li:hover { background-color: #E8E3B7; border-radius: 5px; }
+.pagination li:hover { background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(196,196,196,1) 0%, rgba(23,125,160,1) 100%);; border-radius: 5px; }
 .pagination li a:hover { color: tomato; }
-.active { background-color: #E8E3B7; border-radius: 5px; }
+.active { border-radius: 5px; }
 
 table { width: 100%; margin: 10px 0; }
 th
@@ -36,7 +36,6 @@ th
    font-size: 1.1em; font-weight: bold;
    padding: 5px 0 5px 5px;
    border: 2px solid black;
-   background-color: #E8E3B7;
 }
 
 td { padding-left: 5px; border: 1px solid black; vertical-align: middle; }
@@ -63,12 +62,17 @@ label span { color:red; }
 input { font-size: 1em; width: 74%; }
 .submit { width: 30%; }
 
-footer { background-color: #E8E3B7; }
+footer { background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(196,196,196,1) 0%, rgba(23,125,160,1) 100%); }
 footer p { position: absolute; top:50%; left: 50%; transform: translate(-50%, -50%); }
 footer ul { position: absolute; top:50%; right: 1%; transform: translateY(-50%); text-align: center; }
 footer ul li { display: inline; padding: 0 15px;}
 footer ul li a { text-decoration: none; color: black; }
 footer ul li a:hover { text-decoration: underline; color: tomato; }
+
+footer .Iconsocial 
+{
+  position: absolute; top:60%; left: 50%; transform: translate(-50%, -50%);
+}
 
 /*---------*/
 /* THE END */
@@ -76,3 +80,4 @@ footer ul li a:hover { text-decoration: underline; color: tomato; }
 .textnosize {
   resize: none;
 }
+label span { color:red; }

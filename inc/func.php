@@ -350,11 +350,11 @@ function verifAnnee($errors,$value,$key,$min = 1895)
   }
   elseif (intval($value) < $min)
   {
-    $errors[$key] = 'Veuillez renseigner une année supérieure à' . $min;
+    $errors[$key] = 'Veuillez renseigner une année supérieure à ' . $min;
   }
   elseif (intval($value) > date('Y'))
   {
-  $errors[$key] = 'Veuillez renseigner une année inférieure à' . date('Y');
+  $errors[$key] = 'Veuillez renseigner une année inférieure à ' . date('Y');
   }
   return $errors;
 }
@@ -368,11 +368,11 @@ function verifInt($errors,$value,$key,$min,$max)
     }
     elseif(intval($value < $min))
     {
-      $errors[$key] = 'Veuillez renseigner une valeur supérieure à' . $min;
+      $errors[$key] = 'Veuillez renseigner une valeur supérieure à ' . $min;
     }
     elseif(intval($value > $max))
     {
-      $errors[$key] = 'Veuillez renseigner une valeur inférieure à' . $max;
+      $errors[$key] = 'Veuillez renseigner une valeur inférieure à ' . $max;
     }
   }
   else {
