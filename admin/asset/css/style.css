@@ -73,3 +73,6 @@ footer ul li a:hover { text-decoration: underline; color: tomato; }
 /*---------*/
 /* THE END */
 /*---------*/
+.textnosize {
+  resize: none;
+}
