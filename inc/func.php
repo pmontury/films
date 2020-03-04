@@ -251,3 +251,132 @@ function exist($file)
   }
 
 }
+function validText($errors,$value,$key,$min,$max,$empty = true)
+{
+  if(!empty($value)) {
+    if(strlen($value) < $min) {
+      $errors[$key] = 'Min '.$min.' caractères';
+    } elseif(strlen($value) > $max) {
+      $errors[$key] = 'Max '.$max.' caractères';
+    }
+  } else {
+    if($empty) {
+      $errors[$key] = 'Veuillez renseigner ce champ';
+    }
+  }
+  return $errors;
+}
+
+function validFile($errors,$key,$sizemax = 2000000,$validExtensions =
+array('jpg','jpeg','png','gif'),$validMimetypes = array('image/jpeg','image/png','image/jpg','image/gif'))
+{
+  $ext = '';
+  $nameOriginal = '';
+  if(empty($_FILES[$key])) {
+    $errors[$key] = 'Veuillez choisir une image';
+  }
+  else {
+    if($_FILES[$key]['error'] > 0) {
+        if($_FILES[$key]['error'] != 4) {
+          $errors[$key] = 'Erreur fichier ' . $_FILES[$key]['error'];
+        } else {
+          $errors[$key] = 'Aucun fichier n\'a été téléchargé';
+        }
+    } else {
+      $file_name = $_FILES[$key]['name'];
+      $file_size = $_FILES[$key]['size'];
+      $file_tmp = $_FILES[$key]['tmp_name'];
+      if($file_size > $sizemax || filesize($file_tmp) > $sizemax) {
+        $errors[$key] = 'Le fichier est trop gros (max 2mo)';
+      } else {
+        $path = pathinfo($file_name);
+        $ext = $path['extension'];
+        $nameOriginal = $path['filename'];
+        if(!in_array($ext,$validExtensions)){
+          $errors[$key] = 'Veuillez télécharger une image de type jpg, jpeg, png ou gif svp';
+        } else {
+          $finfo = finfo_open(FILEINFO_MIME_TYPE);
+          $mime = finfo_file($finfo, $file_tmp);
+          finfo_close($finfo);
+          if(!in_array($mime,$validMimetypes)){
+            $errors[$key] = 'Veuillez télécharger une image de type jpg, jpeg, png ou gif svp';
+          }
+        }
+      }
+    }
+  }
+  $data = array(
+    'errors' => $errors,
+    'ext'    => $ext,
+    'nameOriginal' => $nameOriginal
+  );
+  return $data;
+}
+function slugify($text)
+{
+  // replace non letter or digits by -
+  $text = preg_replace('~[^\pL\d]+~u', '-', $text);
+
+  // transliterate
+  $text = iconv('utf-8', 'us-ascii//TRANSLIT', $text);
+
+  // remove unwanted characters
+  $text = preg_replace('~[^-\w]+~', '', $text);
+
+  // trim
+  $text = trim($text, '-');
+
+  // remove duplicate -
+  $text = preg_replace('~-+~', '-', $text);
+
+  // lowercase
+  $text = strtolower($text);
+
+  if (empty($text)) {
+    return 'n-a';
+  }
+
+  return $text;
+}
+
+function verifAnnee($errors,$value,$key,$min = 1895)
+{ if (empty($value))
+  {
+    $errors[$key] = 'Veuillez renseigner une année';
+  }
+  elseif (!is_int(intval($value)))
+  {
+    $errors[$key] = 'Veuillez renseigner une année';
+  }
+  elseif (intval($value) < $min)
+  {
+    $errors[$key] = 'Veuillez renseigner une année supérieure à' . $min;
+  }
+  elseif (intval($value) > date('Y'))
+  {
+  $errors[$key] = 'Veuillez renseigner une année inférieure à' . date('Y');
+  }
+  return $errors;
+}
+
+function verifInt($errors,$value,$key,$min,$max)
+{
+  if(!empty($value)) {
+    if(!is_int(intval($value)))
+    {
+      $errors[$key] = 'Veuillez renseigner une valeur numérique.';
+    }
+    elseif(intval($value < $min))
+    {
+      $errors[$key] = 'Veuillez renseigner une valeur supérieure à' . $min;
+    }
+    elseif(intval($value > $max))
+    {
+      $errors[$key] = 'Veuillez renseigner une valeur inférieure à' . $max;
+    }
+  }
+  else {
+      $errors[$key] = 'Veuillez renseigner ce champ';
+    }
+  return $errors;
+}
