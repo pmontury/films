@@ -4,11 +4,14 @@
    $errors = array();
    if (isLogged()) {
      $user_id = $_SESSION['user']['id'];
-     $sql = "SELECT * FROM t_notes WHERE user_id = :user_id ORDER BY movie_id ASC";
+     $sql = "SELECT * FROM t_notes WHERE user_id = :user_id ORDER BY created_at DESC";
+     // Jointure +++
      $query = $pdo->prepare($sql);
      $query->bindValue(':user_id',$user_id,PDO::PARAM_STR);
      $query->execute();
      $films = $query->fetchAll();
+   } else {
+        die ('404');
    }
    debug($films);
 
