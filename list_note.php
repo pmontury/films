@@ -4,13 +4,19 @@
    $errors = array();
    if (isLogged()) {
      $user_id = $_SESSION['user']['id'];
-     $sql = "SELECT * FROM t_notes WHERE user_id = :user_id";
+     $sql = "SELECT * FROM t_notes ORDER BY movie_id ASC";
      $query = $pdo->prepare($sql);
-     $query->bindvalue(':user_id',$user_id,PDO::PARAM_INT);
      $query->execute();
+     $films = $query->fetchAll();
    }
+   debug($films);
 
    include('inc/html.php');
    include('inc/header.php');
+    foreach ($films as $film): ?>
+      <div class="film">
+        <h2><?= $film['movie_id']; ?></h2>
+      </div>
+    <?php endforeach; ?>
 
-   include('inc/footer.php');
+   <?php include('inc/footer.php');
