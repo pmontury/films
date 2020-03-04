@@ -16,29 +16,30 @@
   }
   // ---------------------ajouter une note au films --------------------------//
   if(!empty($_POST['submitnote'])) {
-    $notation = trim(strip_tags($_POST['notation']));
-    $errors = validText($errors,$notation,'notation',0,100);
-
-    if(count($errors) == 0) {
-      $success = true;
-      $sql = "INSERT INTO t_notes VALUES (NULL, :user_id, :movie_id,:note,NOW(),NOW())";
-      $query = $pdo->prepare($sql);
-      $query->bindvalue(':user_id',$user_id,PDO::PARAM_INT);
-      $query->bindValue(':movie_id',$movie_id, PDO::PARAM_STR);
-      $query->bindValue(':note',$note, PDO::PARAM_STR);
-      $query->execute();
-      header('Location: list_note.php');
+    $notation     = trim(strip_tags($_POST['notation']));
+    if(!empty($notation)) {
+      if (filter_var($notation, FILTER_VALIDATE_INT)) {
+        if($notation < 0) {
+          $errors['notation'] = 'Veuillez renseigner une note entre 0 et 100';
+        } elseif($notation > 100){
+          $errors['notation'] = 'la note ne doit pas dépasser 100';
+        }
+      } else {
+        $errors['notation'] = 'Etrange !!!';
+      }
     } else {
-         die('404');
+      $errors['notation'] = 'Noter ce film';
+    }
+      if(count($errors) == 0) {
+      $success = true;
+      $sql = "INSERT INTO t_notes VALUES (NULL, NULL, NULL,:note,NOW(),NOW())";
+      $query = $pdo->prepare($sql);
+      $query->bindValue(':note',$notation,PDO::PARAM_STR);
+      $query->execute();
+      //header('Location: detail.php');
+      debug($notation);
       }
   }
-
-
-
-
-
-
-
 
    include('inc/html.php');
    include('inc/header.php'); ?>
@@ -62,7 +63,7 @@
        <form action="detail.php" method="post">
          <label for="notation">Notes</label>
          <div class="clear"></div>
-         <input type="number" id="notation" name="notation" value="">
+         <input type="number" min="0" max="100" id="notation" name="notation" value="">
          <p class="error"><?php if(!empty($errors['notation'])) {echo $errors['notation'];} ?></p>
 
          <input type="submit" name="submitnote" value="Envoyer">

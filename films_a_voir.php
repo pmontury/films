@@ -5,6 +5,10 @@ require('inc/func.php');
             $movie_id = $_GET['id'];
             $user_id = $_SESSION['user']['id'];
             // $sql => select
+            $sql = "SELECT * FROM t_notes WHERE user_id = :user_id ORDER BY created_at DESC";
+            $query = $pdo->prepare($sql);
+            $query->bindValue(':user_id',$user_id,PDO::PARAM_STR);
+            $query->execute();
             $movie = selectFilm($movie_id);
             if(!empty($movie)) {
                 $sql = "INSERT INTO t_notes VALUES (NULL, :user_id, :movie_id,NULL,NOW(),NOW())";
