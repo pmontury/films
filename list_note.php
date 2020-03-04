@@ -4,8 +4,9 @@
    $errors = array();
    if (isLogged()) {
      $user_id = $_SESSION['user']['id'];
-     $sql = "SELECT * FROM t_notes ORDER BY movie_id ASC";
+     $sql = "SELECT * FROM t_notes WHERE user_id = :user_id ORDER BY movie_id ASC";
      $query = $pdo->prepare($sql);
+     $query->bindValue(':user_id',$user_id,PDO::PARAM_STR);
      $query->execute();
      $films = $query->fetchAll();
    }
