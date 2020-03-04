@@ -17,7 +17,7 @@
                <li><a href="admin/index.php">Administration</a></li>
 <?php       } ?>
             <li><a href="deconnexion.php">Déconnexion</a></li>
-            <li><a href="films_a_voir.php">A voir</a></li>
+            <li><a href="list_note.php">A voir</a></li>
             <li class="bonjour">Bonjour <?= $_SESSION['user']['pseudo']; ?></li>
 <?php    } ?>
          </ul>
