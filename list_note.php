@@ -12,11 +12,12 @@
    debug($films);
 
    include('inc/html.php');
-   include('inc/header.php');
-    foreach ($films as $film): ?>
+   include('inc/header.php');?>
+  <div class="wrap" id="content">
+    <?php foreach ($films as $film): ?>
       <div class="film">
         <h2><?= $film['movie_id']; ?></h2>
       </div>
     <?php endforeach; ?>
-
+  </div>
    <?php include('inc/footer.php');
