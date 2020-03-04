@@ -9,7 +9,7 @@
         LEFT JOIN movies_full m
                ON n.movie_id = m.id
             WHERE n.user_id = :userid
-              AND n.note IS NULL
+              AND n.note IS NOT NULL
          ORDER BY n.created_at DESC";
      $query = $pdo->prepare($sql);
      $query->bindValue(':userid',$user_id,PDO::PARAM_INT);
@@ -26,7 +26,6 @@
     <?php foreach ($films as $film): ?>
       <div class="film">
         <h2><?= $film['slug']; ?></h2>
-        <a href="notation.php?id=<?= $film['id']; ?>">Noter</a>
       </div>
     <?php endforeach; ?>
   </div>
