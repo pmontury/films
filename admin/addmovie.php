@@ -61,8 +61,7 @@ if(!empty($_POST['submitfilm'])) {
           $query->bindValue(':slug',$text,PDO::PARAM_STR);
           $query->execute();
           $result = $query->fetch();
-          echo $text;
-           debug($result);
+
          $newNameFile = $result['id'] . '.' . $ext;
          if(!is_dir('../posters')) { mkdir('../posters'); }
          $pathToImage = '../posters/'.$newNameFile;
@@ -73,6 +72,10 @@ if(!empty($_POST['submitfilm'])) {
             $errors['image'] = 'upload non effectué';
         }
     }
+  }
+  if (!isAdmin())
+  {
+    header('Location: ../index.php');
   }
 
   include('inc/html.php');

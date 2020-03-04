@@ -1,5 +1,6 @@
 
 <div class="wrap" id="content">
+  <h1>Ajouter un film</h1>
   <!-- Div du css -->
   <form class="" action="" method="post" enctype="multipart/form-data">
     <!-- Début du formulaire du film -->
@@ -19,8 +20,8 @@
     <input type="text" name="genre" value="<?php if(!empty($_POST['genre'])){echo $_POST['genre'];} ?>">
     <p class="error"><?php if(!empty($errors['genre'])){echo $errors['genre'];} ?></p>
 
-    <label for="plot">Synopsis du film</label>
-    <textarea name="plot" rows="8" cols="80"><?php if(!empty($_POST['plot'])){echo $_POST['plot'];} ?></textarea>
+    <label class="labelText" for="plot">Synopsis du film</label>
+    <textarea class="textnosize" name="plot" rows="8" cols="80"><?php if(!empty($_POST['plot'])){echo $_POST['plot'];} ?></textarea>
     <p class="error"><?php if(!empty($errors['plot'])){echo $errors['plot'];} ?></p>
 
     <label for="dik">Réalisateur du film</label>
@@ -47,6 +48,6 @@
     <input type="text" name="popu" value="<?php if(!empty($_POST['popu'])){echo $_POST['popu'];} ?>">
     <p class="error"><?php if(!empty($errors['popu'])){echo $errors['popu'];} ?></p>
 
-    <input type="submit" name="submitfilm" value="Envoyer">
+    <input class="submitlefilm" type="submit" name="submitfilm" value="Envoyer">
   </form>
 </div>
