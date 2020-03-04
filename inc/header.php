@@ -18,6 +18,7 @@
 <?php       } ?>
             <li><a href="deconnexion.php">Déconnexion</a></li>
             <li><a href="list_note.php">A voir</a></li>
+            <li><a href="film_note.php">Films notés</a></li>
             <li class="bonjour">Bonjour <?= $_SESSION['user']['pseudo']; ?></li>
 <?php    } ?>
          </ul>
