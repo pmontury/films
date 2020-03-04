@@ -1,4 +1,4 @@
-<div class="wrap">
+<div class="wrap" id="stats">
    <h1>Statistiques base de données</h1>
 <?php
    $html = '';
