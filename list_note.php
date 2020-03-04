@@ -4,14 +4,16 @@
    $errors = array();
    if (isLogged()) {
      $user_id = $_SESSION['user']['id'];
-     $sql = "SELECT * FROM t_notes WHERE user_id = :user_id ORDER BY created_at DESC";
-     // Jointure +++
-     // $sql = "SELECT t.user_id AS user_id,t.movie_id AS slug,u.slug
-     //        FROM t_notes AS t
-     //        LEFT JOIN movies_full AS m
-     //        ON t.t_notes = m.movies_full";
+     //$sql = "SELECT * FROM t_notes WHERE user_id = :user_id ORDER BY created_at DESC";
+     $sql = "SELECT * FROM notes n
+        LEFT JOIN movies_full m
+               ON n.movie_id = m.id
+            WHERE n.user_id = :userid
+              AND n.note IS NULL
+         ORDER BY n.created_at DESC";
      $query = $pdo->prepare($sql);
-     $query->bindValue(':user_id',$user_id,PDO::PARAM_STR);
+     $query->bindValue(':userid',$userid,PDO::PARAM_STR);
+     //$query->bindValue(':slug',$slug,PDO::PARAM_STR);
      $query->execute();
      $films = $query->fetchAll();
    } else {
@@ -24,7 +26,7 @@
   <div class="wrap" id="content">
     <?php foreach ($films as $film): ?>
       <div class="film">
-        <h2><?= $film['created_at']; ?></h2>
+        <h2><?= $film['movie_id']; ?></h2>
       </div>
     <?php endforeach; ?>
   </div>

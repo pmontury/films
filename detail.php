@@ -66,7 +66,7 @@
          <input type="number" min="0" max="100" id="notation" name="notation" value="">
          <p class="error"><?php if(!empty($errors['notation'])) {echo $errors['notation'];} ?></p>
 
-         <input type="submit" name="submitnote" value="Envoyer">
+         <input type="submit" name="submitnote" value="Noter">
        </form>
        <?php  } ?>
     </div>
