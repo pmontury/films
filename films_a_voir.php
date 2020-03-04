@@ -1,17 +1,26 @@
 <?php
-   require('inc/func.php');
-   include('inc/html.php');
-
+require('inc/func.php');
   if (isLogged()) {
-    $t_notes = $_GET['t_notes'];
-    $sql = "SELECT movie_id FROM t_notes WHERE id = :id ORDER BY created_at";
-    $query = $pdo->prepare($sql);
-    $query->bindvalue(':t_notes',$t_notes,PDO::PARAM_STR);
-    $query->execute();
-     }
-   include('inc/header.php');?>
-   <div class="a voir">
-      <h2><?= $t_notes['movie_id']; ?></h2>
-   </div>
-
-<?php  include('inc/footer.php');
+      if(!empty($_GET['id'])) {
+            $movie_id = $_GET['id'];
+            $user_id = $_SESSION['user']['id'];
+            // $sql => select
+            $sql = "SELECT * FROM t_notes WHERE user_id = :user_id ORDER BY created_at DESC";
+            $query = $pdo->prepare($sql);
+            $query->bindValue(':user_id',$user_id,PDO::PARAM_STR);
+            $query->execute();
+            $movie = selectFilm($movie_id);
+            if(!empty($movie)) {
+                $sql = "INSERT INTO t_notes VALUES (NULL, :user_id, :movie_id,NULL,NOW(),NOW())";
+                $query = $pdo->prepare($sql);
+                $query->bindvalue(':user_id',$user_id,PDO::PARAM_INT);
+                $query->bindValue(':movie_id',$movie_id, PDO::PARAM_STR);
+                $query->execute();
+            } else {
+                die('404');
+            }
+      } else {
+          die('404');
+      }
+  }
+  header('Location: list_note.php');

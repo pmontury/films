@@ -23,6 +23,7 @@ nav ul li a:hover { text-decoration: underline; color: tomato; }
 #content { min-height: 710px; }
 h1 { font-size: 1.5em; margin: 20px 0; text-decoration: underline; }
 
+.pagination { width: 50%; float: left; }
 .pagination li { display: inline; padding: 0 5px; }
 .pagination li a { text-decoration: none; color: black; }
 .pagination li:hover { background-color: #E8E3B7; border-radius: 5px; }
@@ -37,12 +38,15 @@ th
    border: 2px solid black;
    background-color: #E8E3B7;
 }
-.col1 { width: 15%; }
 
-.colaction { text-align: center; padding: 0; }
-td { padding-left: 5px; border: 1px solid black; vertical-align: middle;}
+td { padding-left: 5px; border: 1px solid black; vertical-align: middle; }
+.center { text-align: center; padding: 0; width: 65px; }
+.colaction { text-align: center; padding: 0; width: 90px; }
 i { color: black; padding-right: 5px; vertical-align: middle; }
 i:hover { color: tomato; }
+
+.retour { float: right; }
+/* .retour i { vertical-align: text-top; } */
 
 .detail { width: 50%; float: left; }
 .detail img { width: 90%; }
