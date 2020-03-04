@@ -1,6 +1,8 @@
 
 
-
+  <div class="buttonbox">
+    <a class="button" href="#" onclick="return false">Filtrer</a>
+  </div>
   <?php
   if (!empty($_POST['submitted'])){
       // Déclaration générale sql
@@ -14,15 +16,16 @@
       if (!empty($_POST['cat'])){
         $categories = $_POST['cat'];
         $i = 1;
-        debug($categories);
+      //  debug($categories);
         foreach ($categories as $categorie) {
           if($i == 1){
-            $sql .= " AND genres LIKE :categorie".$i;
+            $sql .= " AND ( genres LIKE :categorie".$i;
           } else {
             $sql .= " OR genres LIKE :categorie".$i;
           }
           $i++;
         }
+        $sql .= ')';
 
       }
       // Fin de la déclaration générale
@@ -58,6 +61,7 @@
 
 
 <div class="wrap">
+  <div class ="critere">
 
     <form class="" action="" method="post">
       <select name="annee">
@@ -78,14 +82,16 @@
       <input type="submit" name="submitted" value="recherche">
 
     </form>
-
+  </div>
 <?php
         foreach ($movies as $movie):
           $file = 'posters/'.$movie['id'].'.jpg'; ?>
           <div class="filmlist">
-            <p><?= $movie['title']; ?></p>
-            <p><?= $movie['year']; ?></p>
-            <p><?= $movie['genres']; ?></p>
+            <div class= "containp">
+              <p><?= $movie['title']; ?></p>
+              <p><?= $movie['year']; ?></p>
+              <p><?= $movie['genres']; ?></p>
+            </div>
             <?php if (file_exists($file)) { ?>
               <div><a href="detail.php?slug=<?= $movie['slug'] ?>"><img src="posters/<?= $movie['id'] ?>.jpg" alt="random image"></a></div>
             <?php } else { ?>
